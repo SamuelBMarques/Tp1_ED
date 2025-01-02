@@ -4,21 +4,20 @@
 int main() {
     int n;
 
-    //printf("Enter the dimension of the nonogram: ");
+    //Lê a dimensao do tabuleiro.
     scanf("%d", &n);
 
-    // Alocar o nonograma
+    //Aloca o nonograma.
     Nonogram *nonogram = NonogramAllocate(n);
 
-    // Ler as dicas do nonograma
-    //printf("Enter the hints for rows and columns:\n");
+    //Lê as dicas do nonograma.
     NonogramRead(nonogram);
 
-    // Resolver o nonograma
+    //Resolve o nonograma.
     int solution_count = 0;
     NonogramPlay(nonogram, 0, 0, &solution_count);
 
-    // Mensagem caso nenhuma solução seja encontrada
+    //Mensagem caso nenhuma solução seja encontrada ou indicando quantas soluções foram encontradas.
     if (solution_count > 0){
         printf("Total of solutions: %d\n",solution_count);
     }
@@ -26,7 +25,7 @@ int main() {
         printf("No solution was found!\n");
     }
 
-    // Liberar a memória do nonograma
+    // Libera a memória do nonograma.
     nonogram = NonogramFree(nonogram);
 
     return 0;
