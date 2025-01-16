@@ -113,7 +113,7 @@ void NonogramPrint(Nonogram *nonogram, int solution_count) {
     for (int i = 0; i < nonogram->dimension; i++) {
         for (int j = 0; j < nonogram->dimension; j++) {
             if (nonogram->board[i][j] == 1) {
-                printf("x");
+                printf("*");
             } else {
                 printf(".");
             }
@@ -177,7 +177,7 @@ void NonogramPlay(Nonogram *nonogram, int linha, int coluna, int *solution_count
     int proxLinha = (coluna == n - 1) ? linha + 1 : linha;          //Se estiver na última coluna, pula para a prúxima linha e mantém na mesma caso contrário
     int proxColuna = (coluna == n - 1) ? 0 : coluna + 1;            //Se estiver na última coluna, volta para a primeira e pula para a próxima caso contrário
 
-    for (int valor = 0; valor <= 1; valor++) {                      //De 0 a 1
+    for (int valor = 1; valor >= 0; valor--) {                      //De 0 a 1
         nonogram->board[linha][coluna] = valor;                     //Preenche o nonograma com o valor
 
         int valido = 1;
