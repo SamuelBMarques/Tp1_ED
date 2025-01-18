@@ -131,7 +131,7 @@ Saida: 1 ou 0 , correspondendo a se a linha esta correta ou não.
 */
 
 int VerifyRC(int *vet, int *hints, int num_hints, int tamanho, int partial) {
-    int conjunto = 0, i = 0, j = 0;
+    int conjunto = 0, i = 0, j = 0;                                             //A variável 'j' representa o numero de conjuntos já encontrados, e um conjunto é um aglomerado de números 1s (posições preenchidas)
 
     while (i < tamanho) {
         if (vet[i] == 1) {
@@ -174,10 +174,10 @@ void NonogramPlay(Nonogram *nonogram, int linha, int coluna, int *solution_count
         return;
     }
 
-    int proxLinha = (coluna == n - 1) ? linha + 1 : linha;          //Se estiver na última coluna, pula para a prúxima linha e mantém na mesma caso contrário
+    int proxLinha = (coluna == n - 1) ? linha + 1 : linha;          //Se estiver na última coluna, pula para a próxima linha e mantém na mesma caso contrário
     int proxColuna = (coluna == n - 1) ? 0 : coluna + 1;            //Se estiver na última coluna, volta para a primeira e pula para a próxima caso contrário
 
-    for (int valor = 1; valor >= 0; valor--) {                      //De 0 a 1
+    for (int valor = 1; valor >= 0; valor--) {                      //De 1 a 0
         nonogram->board[linha][coluna] = valor;                     //Preenche o nonograma com o valor
 
         int valido = 1;
